@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -20,6 +21,7 @@ function run() {
             const messageType = tl.getInput('messageType', true);
             const content = tl.getInput('content');
             const embeds = tl.getInput('embeds');
+            const titleanddescription = tl.getInput('titleanddescription');
             var payload = {};
             if (name)
                 payload["username"] = name;
@@ -27,8 +29,15 @@ function run() {
                 payload["avatar_url"] = avatar;
             if (messageType === "content")
                 payload["content"] = content;
-            else if (messageType === "embeds") { }
-            payload["embeds"] = JSON.parse(embeds);
+            else if (messageType === "embeds")
+                payload["embeds"] = JSON.parse(embeds);
+            else if (messageType === "titleanddescription") {
+                var i = titleanddescription.search(new RegExp("\n"));
+                var title = titleanddescription.substr(0, i);
+                var description = titleanddescription.substr(i);
+                payload["embeds"] = `[{\"title\": "${title}",
+            \"description\" : "${title}"}]`;
+            }
             request({
                 url: `https://discordapp.com/api/webhooks/${channelId}/${webhookKey}`,
                 method: "POST",

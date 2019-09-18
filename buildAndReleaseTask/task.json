@@ -1,6 +1,6 @@
 {
-    "id": "fd1d030f-d11a-4246-bb0e-3d64a84f714f",
-    "name": "ado-discord-webhook",
+    "id": "98bd96d0-c6bd-4734-8a3b-37373c3393e0",
+    "name": "ado-discord-webhook-fizzcode",
     "friendlyName": "Discord Webhook",
     "description": "Allows the sending of custom messages to a Discord Webhook URL",
     "helpMarkDown": "",
@@ -71,7 +71,8 @@
             "helpMarkDown": "Determines the amount of customizability of your webhook message",
             "options": {
                 "content": "Content",
-                "embeds": "Embeds"
+                "embeds": "Embeds",
+                "titleanddescription": "TitleAndDescription"
             }
         },
         {
@@ -89,6 +90,14 @@
             "required": true,
             "visibleRule": "messageType=embeds",
             "helpMarkDown": "This allows for a more complex, JSON-driven definition of your message which is injected into the [embeds](https://discordapp.com/developers/docs/resources/webhook#execute-webhook) property"
+        },
+        {
+            "groupName": "titleanddescription",
+            "name": "titleanddescription",
+            "type": "multiLine",
+            "required": true,
+            "visibleRule": "messageType=titleanddescription",
+            "helpMarkDown": "First line is the title, second line is the description"
         }
     ],
     "execution": {

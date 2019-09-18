@@ -1,0 +1,26 @@
+{
+  "name": "ado-discord-webhook",
+  "version": "1.0.0",
+  "description": "This is a rather simple task that allows the integration of a Discord Webhook into your pipeline.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FizzcodeSoftware/ado-discord-webhook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FizzcodeSoftware/ado-discord-webhook/issues"
+  },
+  "homepage": "https://github.com/FizzcodeSoftware/ado-discord-webhook#readme",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^2.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.5",
+    "@types/q": "^1.5.2"
+  }
+}

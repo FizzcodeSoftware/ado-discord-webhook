@@ -10,6 +10,7 @@ async function run() {
         const messageType: string = tl.getInput('messageType', true);
         const content: string = tl.getInput('content');
         const embeds: string = tl.getInput('embeds');
+        const titleanddescription: string = tl.getInput('titleanddescription');
 
         var payload:any = {};
 
@@ -21,8 +22,17 @@ async function run() {
 
         if (messageType === "content")
             payload["content"] = content;
-        else if (messageType === "embeds"){}
+        else if (messageType === "embeds")
             payload["embeds"] = JSON.parse(embeds);
+        else if (messageType === "titleanddescription")
+        {
+            var i = titleanddescription.search(new RegExp("\n"));
+
+            var title = titleanddescription.substr(0, i);
+            var description = titleanddescription.substr(i);
+            payload["embeds"] = `[{\"title\": "${title}",
+            \"description\" : "${description}"}]`;
+        }
 
         request({
             url: `https://discordapp.com/api/webhooks/${channelId}/${webhookKey}`,

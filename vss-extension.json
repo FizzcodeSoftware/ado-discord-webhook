@@ -3,7 +3,7 @@
     "id": "ado-discord-webhook",
     "name": "Discord Webhook",
     "version": "1.5.0",
-    "publisher": "robmburke",
+    "publisher": "FizzCode",
     "public": true,
     "targets": [
         {
@@ -29,7 +29,7 @@
     },
     "repository": {
         "type": "git",
-        "uri": "https://github.com/seraphx2/ado-discord-webhook"
+        "uri": "https://github.com/FizzcodeSoftware/ado-discord-webhook"
     },
     "contributions": [
         {
